@@ -1,0 +1,5 @@
+{
+    "host":  "http://localhost:3000",
+    "dbURI": "mongodb+srv://gbalyan:balyan@cluster0-nnsug.mongodb.net/test?retryWrites=true&w=majority",
+    "sessionSecret": "catscanfly"
+}
