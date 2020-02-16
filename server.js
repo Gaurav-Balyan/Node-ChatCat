@@ -1,16 +1,20 @@
-'use strict';
+"use strict";
 
-const express = require('express');
+const express = require("express");
 const app = express();
-const chatCat = require('./app');
+const chatCat = require("./app");
+const passport = require("passport");
 
-app.set('port', process.env.PORT || 3000);
-app.use(express.static('public'));
-app.set('view engine', 'ejs');
+app.set("port", process.env.PORT || 3000);
+app.use(express.static("public"));
+app.set("view engine", "ejs");
 
 app.use(chatCat.session);
-app.use('/', chatCat.router);
+app.use(passport.initialize());
+app.use(passport.session());
 
-app.listen(app.get('port'), () => {
-  console.log('chatcat running on Port', app.get('port'));
+app.use("/", chatCat.router);
+
+app.listen(app.get("port"), () => {
+  console.log("chatcat running on Port", app.get("port"));
 });
